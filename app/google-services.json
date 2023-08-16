@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "1090131973705",
+    "firebase_url": "https://a2zandroid-24d47-default-rtdb.asia-southeast1.firebasedatabase.app",
+    "project_id": "a2zandroid-24d47",
+    "storage_bucket": "a2zandroid-24d47.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1090131973705:android:1dae265fdb311fc43e9198",
+        "android_client_info": {
+          "package_name": "com.example.a2z"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1090131973705-4s2f48k02ou6d7sjhdj44g2v64q80bm1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.a2z",
+            "certificate_hash": "7d97c83638f8ba9895388061ec58183ea5b75efe"
+          }
+        },
+        {
+          "client_id": "1090131973705-gr07co0eu4255ql4to4fuuein21i3472.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCOBh-dB6nAkKYZdkh6eWPy4Qm67bIEaO8"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1090131973705-gr07co0eu4255ql4to4fuuein21i3472.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
