@@ -7,7 +7,20 @@
     android:orientation="vertical"
     android:background="@color/white"
     tools:context=".otpascreen">
+    <RelativeLayout
+        android:id="@+id/loadingPanel"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:elevation="3dp">
 
+        <ProgressBar
+            android:layout_width="154dp"
+            android:layout_height="126dp"
+            android:backgroundTint="@color/deepBlue"
+            android:indeterminate="true"
+            android:layout_marginTop="250dp"/>
+    </RelativeLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/subotp"

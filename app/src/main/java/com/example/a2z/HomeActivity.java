@@ -29,13 +29,14 @@ public class HomeActivity extends AppCompatActivity {
     ViewPaggerAdapter viewPaggerAdapter;
     ViewPager2 viewPager;
     ImageView refine;
-
+    String phone,userid;
     @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
-        Toast.makeText(this, "LOGGED IN", Toast.LENGTH_SHORT).show();
+        phone=getIntent().getExtras().getString("phone");
+        userid=getIntent().getExtras().getString("userid");
         tab=findViewById(R.id.tabLayout);
         refine=findViewById(R.id.refine);
         //adapter setting
@@ -78,5 +79,11 @@ public class HomeActivity extends AppCompatActivity {
                 //startActivity(myIntent);
             }
         });
+    }
+    public String getPhone() {
+        return phone;
+    }
+    public String getUserid() {
+        return userid;
     }
 }

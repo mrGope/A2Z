@@ -28,6 +28,7 @@ public class otpascreen  extends AppCompatActivity{
     TextView msg;
     private FirebaseAuth mAuth;
     String verificationId;
+    String phone,userid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,16 +37,17 @@ public class otpascreen  extends AppCompatActivity{
         subotp=findViewById(R.id.subotp1);
         msg=findViewById(R.id.textView3);
         Intent intent = getIntent();
-        String phone=getIntent().getExtras().getString("phone");
+        phone=getIntent().getExtras().getString("phone");
+        userid=getIntent().getExtras().getString("userid");
         mAuth=FirebaseAuth.getInstance();
         msg.setText("Otp has been Sent to "+phone);
-        Toast.makeText(this, "OTP SENT", Toast.LENGTH_SHORT).show();
         sendVerificationCode(phone);
         subotp.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(otp.getText().toString().isEmpty()==false)
+                if(otp.getText().toString().isEmpty()==false){
                     verifyCode(otp.getText().toString());
+                    findViewById(R.id.loadingPanel).setVisibility(View.VISIBLE);}
                 else
                     Toast.makeText(otpascreen.this, "Enter OTP Please", Toast.LENGTH_SHORT).show();
 
@@ -60,15 +62,17 @@ public class otpascreen  extends AppCompatActivity{
                 .addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
+                        findViewById(R.id.loadingPanel).setVisibility(View.GONE);
                         if (task.isSuccessful()) {
                             // if the code is correct and the task is successful
                             // we are sending our user to new activity.
                             Toast.makeText(otpascreen.this, "OTP SUCCESS", Toast.LENGTH_SHORT).show();
                             Intent i = new Intent(otpascreen.this,HomeActivity.class);
+                            i.putExtra("phone",phone);
+                            i.putExtra("userid",userid);
                             startActivity(i);
                             finish();
                             Toast.makeText(otpascreen.this, "OTP SUCCESS BUT CAME BACK", Toast.LENGTH_SHORT).show();
-
                         } else {
                             // if the code is not correct then we are
                             // displaying an error message to the user.
@@ -106,6 +110,7 @@ public class otpascreen  extends AppCompatActivity{
 
             Toast.makeText(otpascreen.this, "OTP SENT", Toast.LENGTH_SHORT).show();
             verificationId = s;
+            findViewById(R.id.loadingPanel).setVisibility(View.GONE);
         }
 
         // this method is called when user

@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+        //
         user=findViewById(R.id.userid);
         pass=findViewById(R.id.pass);
         register=findViewById(R.id.register);
@@ -80,6 +81,7 @@ public class MainActivity extends AppCompatActivity {
                                     String phone = "+91"+snapshot.child(inuser).child("phone").getValue(String.class);
                                  Intent inten=new Intent(getApplicationContext(),otpascreen.class);
                                  inten.putExtra("phone",phone);
+                                 inten.putExtra("userid",inuser);
                                  startActivity(inten);
                                 }
                                 else
